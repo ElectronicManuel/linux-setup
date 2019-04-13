@@ -1,14 +1,11 @@
 #!/bin/bash
 
-if ! [ -z "$1" ]; then
-    LEAGUE_PATH="$1"
-else
-    echo "Enter the path of your LoL Wine prefix. Leave empty to use the default path [$HOME/Games/league-of-legends]"
-    read LEAGUE_PATH
-    if [ -z "$LEAGUE_PATH" ];
-    then
-        LEAGUE_PATH="$HOME/Games/league-of-legends"
-    fi
+LEAGUE_PATH=$(lutris -l -o | grep "League of Legends" | cut -d'|' -f 5 | sed -e 's/^[ \t]*//')
+
+if ! [ -f "$LEAGUE_PATH" ];
+then
+    echo "You need to install League of Legends in Lutris!"
+    exit 1
 fi
 
 BLITZ_PATH="$LEAGUE_PATH/drive_c/users/$USER/AppData/Blitz"
@@ -22,11 +19,20 @@ echo "Installing Blitz..."
 
 BLITZ_TMP=$(mktemp -d)
 wget -O "$BLITZ_TMP/BlitzAppPortable.zip" "https://dl.dropboxusercontent.com/s/b8wlgsp8xeauovk/BlitzAppFullPortable.zip"
-unzip "$BLITZ_TMP/BlitzAppPortable.zip" -d "$BLITZ_PATH"
+unzip "$BLITZ_TMP/BlitzAppPortable.zip" -d -f "$BLITZ_PATH"
 
-cat <<EOL
-Blitz has been installed!
-Add a new Lutris game with the following properties:
-- Executable:   "$BLITZ_PATH/Blitz.exe"
-- Wine prefix:  "$WINEPREFIX"
-EOL
+BLITZ_YML="$(mktemp)"
+cat >$BLITZ_YML <<EOF
+name: Blitz App
+game_slug: blitz-app
+runner: wine
+
+script:
+  game:
+    exe: $BLITZ_PATH/Blitz.exe
+    prefix: $WINEPREFIX
+EOF
+
+lutris -i $BLITZ_YML
+
+echo "Blitz has been installed!"
