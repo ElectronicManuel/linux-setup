@@ -1,5 +1,7 @@
 #!/bin/bash
-GPG_EXPORT=$1
+KEY_ID=$1
+
+GPG_EXPORT=$(sh `dirname $0`/../export-key.sh $KEY_ID)
 
 stty -echo
 printf "Please provide your personal access token for gitlab.com: "
@@ -8,4 +10,4 @@ stty echo
 printf "\n"
 
 GITLAB_BASE_URL="https://gitlab.com/api/v4"
-curl --data "key=$GPG_EXPORT"  -H "PRIVATE-TOKEN: $GITLAB_TOKEN" $GITLAB_BASE_URL/user/gpg_keys
+curl --data-urlencode "key=$GPG_EXPORT"  -H "PRIVATE-TOKEN: $GITLAB_TOKEN" $GITLAB_BASE_URL/user/gpg_keys

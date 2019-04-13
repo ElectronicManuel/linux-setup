@@ -5,21 +5,25 @@ EMAIL=$3
 GIT_SITE=$4
 GIT_PROFILE_NAME=$5
 
+echo Name: $NAME
+echo Comment: $COMMENT
+echo Email: $EMAIL
+echo Site: $GIT_SITE
+echo Git Profile: $GIT_PROFILE_NAME
+
 # Generate GPG Key
-sh ./git/generate-key.sh $NAME $COMMENT $EMAIL
+sh ./git/generate-key.sh "$NAME" "$COMMENT" "$EMAIL"
 
 # Fetch Key ID
-KEY_ID=$(sh ./git/get-key-id.sh $NAME $COMMENT $EMAIL)
-
+KEY_ID=$(sh ./git/get-key-id.sh "$NAME" "$COMMENT" "$EMAIL")
 echo "GPG Key generated: $KEY_ID"
-GPG_EXPORT=$(sh ./git/export-key.sh $KEY_ID)
 
 # Configure Git
 
 if [ -z "$GIT_PROFILE_NAME" ]; then
 
 echo "Configuring default git profile..."
-cat >~/.gitconfig <<EOF
+cat >>~/.gitconfig <<EOF
 [user]
      email = $EMAIL
      name = $NAME
@@ -33,11 +37,11 @@ EOF
 else
 
 echo "Configuring git profile $GIT_PROFILE_NAME..."
-cat >~/.gitconfig <<EOF
+cat >>~/.gitconfig <<EOF
 [includeIf "gitdir:$GIT_PROFILE_NAME/"]
      path = .gitconfig-$GIT_PROFILE_NAME
 EOF
-cat >~/.gitconfig-$GIT_PROFILE_NAME <<EOF
+cat >>~/.gitconfig-$GIT_PROFILE_NAME <<EOF
 [user]
      email = $EMAIL
      name = $NAME
@@ -50,6 +54,6 @@ if ! [ -z "$GIT_SITE" ]; then
      if [ ! -f "./git/upload/$GIT_SITE.sh" ]; then
           echo "Git site $GIT_SITE is not supported!"
      else
-          sh ./git/upload/$GIT_SITE.sh $GPG_EXPORT
+          sh ./git/upload/$GIT_SITE.sh $KEY_ID
      fi
 fi
