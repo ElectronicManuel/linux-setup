@@ -1,9 +1,14 @@
 #!/bin/bash
 
-LEAGUE_PATH="$HOME/Games/league-of-legends"
-
 if ! [ -z "$1" ]; then
     LEAGUE_PATH="$1"
+else
+    echo "Enter the path of your LoL Wine prefix. Leave empty to use the default path [$HOME/Games/league-of-legends]"
+    read LEAGUE_PATH
+    if [ -z "$LEAGUE_PATH" ];
+    then
+        LEAGUE_PATH="$HOME/Games/league-of-legends"
+    fi
 fi
 
 BLITZ_PATH="$LEAGUE_PATH/drive_c/users/$USER/AppData/Blitz"
@@ -22,6 +27,6 @@ unzip "$BLITZ_TMP/BlitzAppPortable.zip" -d "$BLITZ_PATH"
 cat <<EOL
 Blitz has been installed!
 Add a new Lutris game with the following properties:
-- Wine prefix:  "$WINEPREFIX"
 - Executable:   "$BLITZ_PATH/Blitz.exe"
+- Wine prefix:  "$WINEPREFIX"
 EOL
