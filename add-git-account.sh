@@ -46,7 +46,7 @@ EOF
 
 fi
 
-if ! [ -z "$GIT_SITE"]; then
+if ! [ -z "$GIT_SITE" ]; then
      if [ ! -f "./git/upload/$GIT_SITE.sh" ]; then
           echo "Git site $GIT_SITE is not supported!"
      else
