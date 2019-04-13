@@ -35,6 +35,16 @@ sudo apt -y install $DISCORD_TEMP/discord.deb
 sudo dpkg --add-architecture i386
 sudo apt -y install libvulkan1 libvulkan1:i386
 sudo apt -y install wine
+# MS Fonts
+sudo apt -y install ttf-mscorefonts-installer
+# Install Blitz
+# Copy Blitz Portable into wineprefix (https://drive.google.com/open?id=10nB_Z_6BGETlm5f2XJDPWHW_lLzZ3GJ7)
+# cp -r C:/Users/$WinUser/AppData/Local/Blitz/ $WINEPREFIX/drive_c/users/$USER/AppData/Blitz
+# (Optional) Copy Blitz data into wineprefix
+# cp -r C:/Users/$WinUser/AppData/Roaming/Blitz/ $WINEPREFIX/drive_c/users/$USER/Application\ Data/Blitz
+
+
+# https://dl.blitz.gg/download/windows
 # Lutris itself
 sudo add-apt-repository -y ppa:lutris-team/lutris
 sudo apt -y update
