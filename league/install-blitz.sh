@@ -16,7 +16,7 @@ winetricks -q corefonts
 echo "Installing Blitz..."
 
 BLITZ_TMP=$(mktemp -d)
-curl -o "$BLITZ_TMP/BlitzAppPortable.zip" "https://dl.dropboxusercontent.com/s/b8wlgsp8xeauovk/BlitzAppFullPortable.zip"
+wget -O "$BLITZ_TMP/BlitzAppPortable.zip" "https://dl.dropboxusercontent.com/s/b8wlgsp8xeauovk/BlitzAppFullPortable.zip"
 unzip "$BLITZ_TMP/BlitzAppPortable.zip" -d "$BLITZ_PATH"
 
 cat <<EOL
