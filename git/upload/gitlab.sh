@@ -4,7 +4,7 @@ KEY_ID=$1
 GPG_EXPORT=$(sh `dirname $0`/../export-key.sh $KEY_ID)
 
 stty -echo
-printf "Please provide your personal access token for gitlab.com: "
+printf "Please provide your personal access token for gitlab.com [https://gitlab.com/profile/personal_access_tokens]: "
 read GITLAB_TOKEN
 stty echo
 printf "\n"
