@@ -12,10 +12,10 @@ echo Site: $GIT_SITE
 echo Git Profile: $GIT_PROFILE_NAME
 
 # Generate GPG Key
-sh ./git/generate-key.sh "$NAME" "$COMMENT" "$EMAIL"
+sh `dirname $0`/git/generate-key.sh "$NAME" "$COMMENT" "$EMAIL"
 
 # Fetch Key ID
-KEY_ID=$(sh ./git/get-key-id.sh "$NAME" "$COMMENT" "$EMAIL")
+KEY_ID=$(sh `dirname $0`/git/get-key-id.sh "$NAME" "$COMMENT" "$EMAIL")
 echo "GPG Key generated: $KEY_ID"
 
 # Configure Git
@@ -51,9 +51,9 @@ EOF
 fi
 
 if ! [ -z "$GIT_SITE" ]; then
-     if [ ! -f "./git/upload/$GIT_SITE.sh" ]; then
+     if [ ! -f "`dirname $0`/git/upload/$GIT_SITE.sh" ]; then
           echo "Git site $GIT_SITE is not supported!"
      else
-          sh ./git/upload/$GIT_SITE.sh $KEY_ID
+          sh `dirname $0`/git/upload/$GIT_SITE.sh $KEY_ID
      fi
 fi
