@@ -21,7 +21,7 @@ echo "Installing Blitz..."
 
 BLITZ_TMP=$(mktemp -d)
 wget -O "$BLITZ_TMP/BlitzAppPortable.zip" "https://dl.dropboxusercontent.com/s/b8wlgsp8xeauovk/BlitzAppFullPortable.zip"
-unzip "$BLITZ_TMP/BlitzAppPortable.zip" -d -f "$BLITZ_PATH"
+unzip "$BLITZ_TMP/BlitzAppPortable.zip" -d "$BLITZ_PATH"
 
 BLITZ_YML="$(mktemp)"
 cat >$BLITZ_YML <<EOF
