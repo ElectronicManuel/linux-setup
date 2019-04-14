@@ -29,7 +29,6 @@ name: Blitz App
 game_slug: blitz-app
 version: Installer
 slug: blitz-app-installer
-runner: wine
 
 script:
   game:
@@ -39,7 +38,7 @@ EOF
 
 lutris -i $BLITZ_YML
 
-if [ "$?" -q "0" ];
+if [ "$?" -eq "0" ];
 then
     echo "Blitz has been installed!"
 else
