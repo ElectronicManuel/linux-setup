@@ -1,6 +1,8 @@
 #!/bin/bash
 
-LEAGUE_PATH=$(lutris -l -o | grep "League of Legends" | cut -d'|' -f 5 | sed -e 's/^[ \t]*//')
+LEAGUE_PATH=$(lutris -l -o | grep "League of Legends" | cut -d'|' -f 5 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+echo "Detected LoL path: $LEAGUE_PATH"
 
 if ! [ -f "$LEAGUE_PATH" ];
 then
