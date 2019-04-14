@@ -27,6 +27,8 @@ BLITZ_YML="$(mktemp)"
 cat >$BLITZ_YML <<EOF
 name: Blitz App
 game_slug: blitz-app
+version: Installer
+slug: blitz-app-installer
 runner: wine
 
 script:
@@ -37,4 +39,12 @@ EOF
 
 lutris -i $BLITZ_YML
 
-echo "Blitz has been installed!"
+if [ "$?" -q "0" ];
+then
+    echo "Blitz has been installed!"
+else
+    echo "Blitz has been partially installed!"
+    echo "All that is left to do is to create a lutris game:"
+    echo "- Executable:     $BLITZ_PATH/Blitz.exe"
+    echo "- Wine prefix:    $WINEPREFIX"
+fi
