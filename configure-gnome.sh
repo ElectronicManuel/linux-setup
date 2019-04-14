@@ -10,6 +10,8 @@ wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell
 chmod +x gnome-shell-extension-installer
 sudo mv gnome-shell-extension-installer /usr/bin/
 
+sudo apt -y install gnome-tweaks
+
 # Extensions to install
 # 1160: https://extensions.gnome.org/extension/1160/dash-to-panel/
 gnome-shell-extension-installer 1160
