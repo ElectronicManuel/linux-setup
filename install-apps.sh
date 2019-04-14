@@ -46,6 +46,12 @@ sudo apt -y install lutris
 # Steam
 sudo apt -y install steam
 
+# OBS Studio
+sudo apt -y install ffmpeg
+sudo add-apt-repository -y ppa:obsproject/obs-studio
+sudo apt -y update
+sudo apt -y install obs-studio
+
 # Java
 sudo apt -y install openjdk-8-jdk
 
