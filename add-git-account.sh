@@ -5,6 +5,36 @@ EMAIL=$3
 GIT_SITE=$4
 GIT_PROFILE_NAME=$5
 
+if [ -z "$NAME" ];
+then
+     printf "Please enter your name: "
+     read NAME
+fi
+
+if [ -z "$COMMENT" ];
+then
+     printf "Please enter a comment for the GPG key: "
+     read COMMENT
+fi
+
+if [ -z "$EMAIL" ];
+then
+     printf "Please enter your email: "
+     read EMAIL
+fi
+
+if [ -z "$GIT_SITE" ];
+then
+     printf "Please enter your git host [github, gitlab] (Leave blank to not autoupload your key): "
+     read GIT_SITE
+fi
+
+if [ -z "$GIT_PROFILE_NAME" ];
+then
+     printf "Please give this git config a name, this config will be used when in a project with a folder of that name is present in the path. Leave empty to setup the default config: "
+     read GIT_PROFILE_NAME
+fi
+
 echo Name: $NAME
 echo Comment: $COMMENT
 echo Email: $EMAIL
