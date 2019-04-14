@@ -29,6 +29,7 @@ name: Blitz App
 game_slug: blitz-app
 version: Installer
 slug: blitz-app-installer
+runner: wine
 
 script:
   game:
