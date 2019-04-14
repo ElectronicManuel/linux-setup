@@ -41,6 +41,13 @@ echo Email: $EMAIL
 echo Site: $GIT_SITE
 echo Git Profile: $GIT_PROFILE_NAME
 
+printf "Confirm creation of git settings including gpg keys? [y/n]: "
+read REPLY
+if [ ! $REPLY = "y" ];
+then
+    exit 1
+fi
+
 # Generate GPG Key
 sh `dirname $0`/git/generate-key.sh "$NAME" "$COMMENT" "$EMAIL"
 
