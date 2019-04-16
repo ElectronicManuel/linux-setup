@@ -15,6 +15,7 @@ BLITZ_PATH="$LEAGUE_PATH/drive_c/users/$USER/AppData/Blitz"
 echo "Configuring Wine..."
 export WINEPREFIX="$LEAGUE_PATH"
 winetricks -q corefonts
+winetricks -q dotnet45
 
 echo "Installing Blitz..."
 
