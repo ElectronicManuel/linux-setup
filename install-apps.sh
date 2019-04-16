@@ -58,6 +58,9 @@ sudo apt -y install openjdk-8-jdk
 # Flameshot
 sudo apt -y install flameshot
 
+# NVM
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
 
 # Manual actions to be taken
 echo "You need to configure the keyboard shortcuts for taking screenshots"
