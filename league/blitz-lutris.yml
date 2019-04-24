@@ -12,7 +12,7 @@ script:
         filename: blitz-installer.exe
     - MonoInstaller: https://dl.winehq.org/wine/wine-mono/4.8.2/wine-mono-4.8.2.msi
   game:
-    exe: drive_c/users/$USER/Local\ Settings/Application\ Data/Blitz/Blitz.exe
+    exe: drive_c/users/$USER/Local Settings/Application Data/Blitz/Blitz.exe
     prefix: $GAMEDIR
   installer:
     - task:
