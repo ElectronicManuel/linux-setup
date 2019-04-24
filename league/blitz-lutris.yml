@@ -31,7 +31,7 @@ script:
         description: Running Blitz app installer
         prefix: $GAMEDIR
         executable: BlitzInstaller
-        exclude_processes: Blitz.exe blitz-installer.exe Update.exe
+        exclude_processes: Update.exe Blitz.exe blitz-installer
     - task:
         name: winekill
         prefix: $GAMEDIR
