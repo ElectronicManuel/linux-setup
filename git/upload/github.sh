@@ -1,7 +1,8 @@
 #!/bin/bash
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 KEY_ID=$1
 
-GPG_EXPORT=$(sh `dirname $0`/../export-key.sh $KEY_ID)
+GPG_EXPORT=$(sh "$SCRIPTPATH/../export-key.sh" $KEY_ID)
 
 echo "Please enter your username for github.com: "
 read GITHUB_USER

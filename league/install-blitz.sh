@@ -5,4 +5,6 @@
 #   - ElectronicManuel (Github: https://github.com/ElectronicManuel)
 #
 
-lutris -i `dirname $0`/blitz-lutris.yml
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+lutris -i "$SCRIPTPATH/blitz-lutris.yml"

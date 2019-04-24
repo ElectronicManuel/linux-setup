@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
 # Useful commands:
 # - List Settings
 # gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/schemas/ list-recursively org.gnome.shell.extensions.dash-to-panel
@@ -21,4 +23,4 @@ gsettings set org.gnome.desktop.interface gtk-theme Pop-dark
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/schemas/ set org.gnome.shell.extensions.dash-to-panel stockgs-panelbtn-click-only true
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
-sh `dirname $0`/activate-gnome-extensions.sh
+sh "$SCRIPTPATH/activate-gnome-extensions.sh"

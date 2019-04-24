@@ -1,7 +1,8 @@
 #!/bin/bash
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 KEY_ID=$1
 
-GPG_EXPORT=$(sh `dirname $0`/../export-key.sh $KEY_ID)
+GPG_EXPORT=$(sh "$SCRIPTPATH/../export-key.sh" $KEY_ID)
 
 stty -echo
 printf "Please provide your personal access token for gitlab.com [https://gitlab.com/profile/personal_access_tokens]: "
