@@ -1,0 +1,56 @@
+name: Blitz App League
+game_slug: blitz-app-league
+version: Installer
+slug: blitz-app-league-installer
+runner: wine
+
+script:
+  requires: league-of-legends
+  files:
+    - BlitzInstaller:
+        url: https://dl.blitz.gg/download/windows
+        filename: blitz-installer.exe
+    - MonoInstaller: https://dl.winehq.org/wine/wine-mono/4.8.2/wine-mono-4.8.2.msi
+  game:
+    exe: drive_c/users/$USER/Local Settings/Application Data/Blitz/Blitz.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        name: wineexec
+        executable: ""
+        prefix: $GAMEDIR
+        args: uninstaller --remove '{7290EA95-9F17-58E8-8436-4A532DA0F54E}'
+        description: Temporarily removing Wine Mono
+    - task:
+        name: winetricks
+        prefix: $GAMEDIR
+        app: dotnet452 win7 corefonts
+        description: Installing prerequisites
+    - task:
+        name: wineexec
+        description: Running Blitz app installer
+        prefix: $GAMEDIR
+        executable: BlitzInstaller
+        exclude_processes: Blitz.exe blitz-installer.exe Update.exe
+    - task:
+        name: winekill
+        prefix: $GAMEDIR
+    - task:
+        name: set_regedit
+        prefix: $GAMEDIR
+        path: HKEY_CURRENT_USER\Software\Wine\DllOverrides
+        key: mscoree
+        value: ''
+        description: Configuring DLL Overrides
+    - task:
+        name: set_regedit
+        prefix: $GAMEDIR
+        path: HKEY_CURRENT_USER\Software\Wine\AppDefaults\Blitz.exe\DllOverrides
+        key: mscoree
+        value: 'native'
+        description: Configuring DLL Overrides for Blitz
+    - task:
+        name: wineexec
+        prefix: $GAMEDIR
+        executable: MonoInstaller
+        description: Reinstalling Wine Mono
