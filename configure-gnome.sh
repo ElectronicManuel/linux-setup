@@ -17,7 +17,9 @@ sudo apt -y install gnome-tweaks
 # Extensions to install
 # 1160: https://extensions.gnome.org/extension/1160/dash-to-panel/
 # 615: https://extensions.gnome.org/extension/615/appindicator-support/
-gnome-shell-extension-installer 1160 615
+# 906: https://extensions.gnome.org/extension/906/sound-output-device-chooser/
+# 1653: https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/
+gnome-shell-extension-installer 1160 615 906 1653
 
 # Change Setting
 gsettings set org.gnome.desktop.interface gtk-theme Pop-dark
