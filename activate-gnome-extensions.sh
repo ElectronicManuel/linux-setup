@@ -1,6 +1,7 @@
 #!/bin/bash
 
 gnome-shell-extension-tool -e dash-to-panel@jderose9.github.com
+gnome-shell-extension-tool -e appindicatorsupport@rgcjonas.gmail.com
 
 # Restart the gnome shell
 cat <<EOL
