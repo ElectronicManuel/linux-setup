@@ -26,6 +26,7 @@ gnome-shell-extension-installer 1160 615 906 1653 708
 
 # General
 gsettings set org.gnome.desktop.interface gtk-theme Pop-dark
+gsettings set org.gnome.desktop.interface clock-show-weekday true
 
 # Dash to Panel
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/schemas/ set org.gnome.shell.extensions.dash-to-panel stockgs-panelbtn-click-only true
