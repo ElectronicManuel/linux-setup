@@ -22,9 +22,17 @@ sudo apt -y install gnome-tweaks
 # 708: https://extensions.gnome.org/extension/708/panel-osd/
 gnome-shell-extension-installer 1160 615 906 1653 708
 
-# Change Setting
+# Change Settings
+
+# General
 gsettings set org.gnome.desktop.interface gtk-theme Pop-dark
+
+# Dash to Panel
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/schemas/ set org.gnome.shell.extensions.dash-to-panel stockgs-panelbtn-click-only true
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+
+# Panel OSD
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/panel-osd@berend.de.schouwer.gmail.com/schemas/ set org.gnome.shell.extensions.panel-osd y-pos 1.0
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/panel-osd@berend.de.schouwer.gmail.com/schemas/ set org.gnome.shell.extensions.panel-osd x-pos 98.0
 
 sh "$SCRIPTPATH/activate-gnome-extensions.sh"
