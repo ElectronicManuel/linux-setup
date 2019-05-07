@@ -5,6 +5,7 @@ gnome-shell-extension-tool -e appindicatorsupport@rgcjonas.gmail.com
 gnome-shell-extension-tool -e sound-output-device-chooser@kgshank.net
 gnome-shell-extension-tool -e tweaks-system-menu@extensions.gnome-shell.fifi.org
 gnome-shell-extension-tool -e panel-osd@berend.de.schouwer.gmail.com
+gnome-shell-extension-tool -e drop-down-terminal@gs-extensions.zzrough.org
 
 # Restart the gnome shell
 cat <<EOL

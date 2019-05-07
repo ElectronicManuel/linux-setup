@@ -20,7 +20,8 @@ sudo apt -y install gnome-tweaks
 # 906: https://extensions.gnome.org/extension/906/sound-output-device-chooser/
 # 1653: https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/
 # 708: https://extensions.gnome.org/extension/708/panel-osd/
-gnome-shell-extension-installer 1160 615 906 1653 708
+# 1647: https://extensions.gnome.org/extension/1647/drop-down-terminal/
+gnome-shell-extension-installer 1160 615 906 1653 708 1647
 
 # Change Settings
 
@@ -35,5 +36,9 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 # Panel OSD
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/panel-osd@berend.de.schouwer.gmail.com/schemas/ set org.gnome.shell.extensions.panel-osd y-pos 1.0
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/panel-osd@berend.de.schouwer.gmail.com/schemas/ set org.gnome.shell.extensions.panel-osd x-pos 98.0
+
+# Drop down terminal
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/drop-down-terminal@gs-extensions.zhb.org/ set org.zzrough.gs-extensions.drop-down-terminal transparent-terminal false
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/drop-down-terminal@gs-extensions.zhb.org/ set org.zzrough.gs-extensions.drop-down-terminal background-color 'rgb(51,48,47)'
 
 sh "$SCRIPTPATH/activate-gnome-extensions.sh"
