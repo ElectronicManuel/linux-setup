@@ -1,4 +1,7 @@
 #!/bin/bash
+
+echo "This script is no longer needed on newer versions of Spotify!"
+
 SPOTIFY_USERNAME=$1
 
 if [ -z "$SPOTIFY_USERNAME" ];

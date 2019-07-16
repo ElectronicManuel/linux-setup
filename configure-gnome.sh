@@ -16,12 +16,13 @@ sudo apt -y install gnome-tweaks
 
 # Extensions to install
 # 1160: https://extensions.gnome.org/extension/1160/dash-to-panel/
-# 615: https://extensions.gnome.org/extension/615/appindicator-support/
+# # Replaced with 1031 # 615: https://extensions.gnome.org/extension/615/appindicator-support/
+# 1031: https://extensions.gnome.org/extension/1031/topicons/
 # 906: https://extensions.gnome.org/extension/906/sound-output-device-chooser/
 # 1653: https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/
 # 708: https://extensions.gnome.org/extension/708/panel-osd/
 # 1647: https://extensions.gnome.org/extension/1647/drop-down-terminal/
-gnome-shell-extension-installer 1160 615 906 1653 708 1647
+gnome-shell-extension-installer 1160 1031 906 1653 708 1647
 
 # Change Settings
 
