@@ -1,5 +1,7 @@
-LEAGUE_DIR="/home/$USER/wine-lol"
+LEAGUE_DIR="/home/$USER/Games/wine-lol"
 WINE_DIR="/opt/wine-lol/bin"
+
+mkdir "/home/$USER/Games"
 
 # Configure wine settings
 export WINEPREFIX=$LEAGUE_DIR
