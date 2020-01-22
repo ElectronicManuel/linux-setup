@@ -53,13 +53,16 @@ sudo apt -y update
 sudo apt -y install obs-studio
 
 # Java
-sudo apt -y install openjdk-8-jdk
+# sudo apt -y install openjdk-8-jdk
+curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
+# Todo: install java from oracle
 
 # Flameshot
 sudo apt -y install flameshot
 
 # NVM
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+nvm install node
 
 
 # Manual actions to be taken
